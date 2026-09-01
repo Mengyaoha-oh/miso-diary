@@ -73,3 +73,13 @@ a {
 footer {
   display: none;
 }
+
+/* 首页：隐藏左侧页面目录 */
+body:has(.home-page-marker) .bs-sidebar {
+  display: none;
+}
+
+/* 首页：让正文使用完整宽度 */
+body:has(.home-page-marker) .col-md-9 {
+  width: 100%;
+}

@@ -1,6 +1,5 @@
+<span class="home-page-marker"></span>
+
 # みそ日記
 
-书、电影与一些记录。
-
-
-
+記録は、ゆっくり発酵する。
