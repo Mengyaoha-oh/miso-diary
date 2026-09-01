@@ -6,13 +6,9 @@ theme:
 
 nav:
   - 首页: index.md
-  - 阅读:
-      - 阅读: books/index.md
-      - 尘埃落定: books/尘埃落定.md
-  - 影片:
-      - 影片: films/index.md
-  - 随记:
-      - 随记: notes/index.md
+  - 阅读: books/index.md
+  - 影片: films/index.md
+  - 随记: notes/index.md
 
 extra_css:
   - style.css

@@ -1,4 +1,8 @@
-/* 整个页面：白色背景、黑色文字，并去掉默认背景图案 */
+/* =========================================================
+   基础页面
+   ========================================================= */
+
+/* 整个页面：白色背景、黑色文字 */
 body {
   background: #fff;
   background-image: none;
@@ -7,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* 标题：保持简洁，不使用过粗字重 */
+/* 正文标题 */
 h1,
 h2,
 h3 {
@@ -15,88 +19,152 @@ h3 {
   line-height: 1.25;
 }
 
-/* 所有普通链接使用黑色 */
+/* 普通链接 */
 a {
   color: #111;
 }
 
-/* 顶部导航栏：白色背景，并加一条浅灰色底边 */
+
+/* =========================================================
+   顶部导航
+   ========================================================= */
+
+/* 顶部导航栏：白底 + 很浅的分隔线 */
 .navbar {
   background: #fff !important;
   border-bottom: 1px solid #ddd;
+  box-shadow: none;
 }
 
-/* 顶部导航栏里的文字和链接改成黑色 */
+/* 顶部所有文字保持黑色 */
 .navbar a,
 .navbar-brand,
 .navbar-nav .nav-link {
   color: #111 !important;
 }
 
-/* 限制整个页面最大宽度，避免正文铺满宽屏 */
+/* 隐藏搜索入口 */
+.navbar li:has([data-bs-target="#mkdocs_search_modal"]),
+.navbar li:has([data-target="#mkdocs_search_modal"]) {
+  display: none !important;
+}
+
+/* 隐藏上一章 / 下一章 */
+.navbar li:has(a[rel="prev"]),
+.navbar li:has(a[rel="next"]) {
+  display: none !important;
+}
+
+
+/* =========================================================
+   页面主体
+   ========================================================= */
+
+/* 控制整个网站正文区域宽度 */
 .container {
   max-width: 900px;
 }
 
-/* 左侧页面目录：去掉边框、背景、圆角和阴影 */
+
+/* =========================================================
+   左侧文章目录
+   ========================================================= */
+
+/* 左侧目录：去掉默认卡片感 */
 .bs-sidebar {
-  border: none;
   background: transparent;
+  border: none;
+  border-radius: 0;
   box-shadow: none;
   padding: 0;
+  margin-top: 0.4rem;
 }
 
-/* 左侧目录链接：保持紧凑、纯文字 */
+/* 左侧目录普通文字 */
 .bs-sidebar .nav a {
-  color: #111;
-  background: transparent;
-  padding: 0.25rem 0;
-  font-size: 0.9rem;
+  display: block;
+  background: transparent !important;
+  border: none !important;
+
+  color: #777;
+  padding: 0.18rem 0;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-decoration: none;
 }
 
-/* 当前选中的目录项：只用粗体表示，不显示竖线或背景 */
+/* 鼠标移动到目录项目上 */
+.bs-sidebar .nav a:hover {
+  color: #111;
+  background: transparent !important;
+}
+
+/* 当前所在章节：只用较深文字和粗体表示 */
 .bs-sidebar .nav > li > a.active,
 .bs-sidebar .nav > li > a.active:hover,
 .bs-sidebar .nav > li > a.active:focus {
-  border: none !important;
-  background: transparent;
   color: #111;
+  background: transparent !important;
+  border: none !important;
   font-weight: 600;
 }
 
-/* 隐藏顶部搜索和 Previous / Next 导航 */
-.navbar .form-inline,
-.navbar-nav.ms-auto {
-  display: none !important;
+/* 二级目录稍微缩进 */
+.bs-sidebar .nav .nav {
+  padding-left: 0.8rem;
 }
 
-/* 隐藏 MkDocs 默认页脚 */
+
+/* =========================================================
+   MkDocs 默认元素
+   ========================================================= */
+
+/* 隐藏默认页脚 */
 footer {
   display: none;
 }
 
-/* 首页：隐藏左侧目录 */
+
+/* =========================================================
+   首页
+   ========================================================= */
+
+/* 首页不需要左侧文章目录 */
 body:has(.home) .bs-sidebar {
   display: none;
 }
 
-/* 首页正文区域 */
+/* 首页取消 sidebar 原本占用的宽度 */
+body:has(.home) .col-md-9 {
+  width: 100%;
+  margin-left: 0;
+}
+
+/* 首页：让一句话成为页面主体 */
 .home {
-  max-width: 720px;
-  padding-top: 3.5rem;
+  max-width: 640px;
+  min-height: calc(100vh - 120px);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-bottom: 8vh;
 }
 
-/* 首页标题 */
-.home h1 {
-  margin: 0 0 1rem;
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-/* 首页副标题 */
+/* 首页短句 */
 .home p {
   margin: 0;
-  font-size: 1.35rem;
-  line-height: 1.7;
+  text-align: left;
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    serif;
+
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
 }
