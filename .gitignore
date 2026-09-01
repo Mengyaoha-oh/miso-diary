@@ -1,0 +1,12 @@
+# Local Python environment
+.venv/
+
+# MkDocs build output
+site/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# macOS metadata
+.DS_Store

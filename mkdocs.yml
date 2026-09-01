@@ -1,0 +1,17 @@
+site_name: みそ日記
+theme:
+  name: mkdocs
+
+plugins: []
+nav:
+  - Home: index.md
+  - Books:
+      - Books: books/index.md
+      - 尘埃落定: books/尘埃落定.md
+  - Films:
+      - Films: films/index.md
+  - Notes:
+      - Notes: notes/index.md
+
+extra_css:
+  - style.css
