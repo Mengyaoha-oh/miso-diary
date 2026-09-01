@@ -1,7 +1,6 @@
 # みそ日記
 
-Books, films, and notes.
+书、电影与一些记录。
 
-## Recent
 
-* [尘埃落定](books/尘埃落定.md)
+

@@ -1,17 +1,18 @@
 site_name: みそ日記
+
 theme:
   name: mkdocs
+  locale: zh_CN
 
-plugins: []
 nav:
-  - Home: index.md
-  - Books:
-      - Books: books/index.md
+  - 首页: index.md
+  - 阅读:
+      - 阅读: books/index.md
       - 尘埃落定: books/尘埃落定.md
-  - Films:
-      - Films: films/index.md
-  - Notes:
-      - Notes: notes/index.md
+  - 影片:
+      - 影片: films/index.md
+  - 随记:
+      - 随记: notes/index.md
 
 extra_css:
   - style.css
