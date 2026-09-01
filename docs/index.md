@@ -1,5 +1,7 @@
-<span class="home-page-marker"></span>
+<div class="home">
 
-# みそ日記
+<h1>みそ日記</h1>
 
-記録は、ゆっくり発酵する。
+<p>記録は、ゆっくり発酵する。</p>
+
+</div>

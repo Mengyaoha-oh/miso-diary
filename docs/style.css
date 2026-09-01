@@ -7,6 +7,7 @@ body {
   line-height: 1.6;
 }
 
+/* 标题：保持简洁，不使用过粗字重 */
 h1,
 h2,
 h3 {
@@ -19,7 +20,7 @@ a {
   color: #111;
 }
 
-/* 顶部导航栏：改成白色，并加一条浅灰色底边 */
+/* 顶部导航栏：白色背景，并加一条浅灰色底边 */
 .navbar {
   background: #fff !important;
   border-bottom: 1px solid #ddd;
@@ -32,12 +33,12 @@ a {
   color: #111 !important;
 }
 
-/* 限制页面最大宽度，让正文不要铺满整个屏幕 */
+/* 限制整个页面最大宽度，避免正文铺满宽屏 */
 .container {
   max-width: 900px;
 }
 
-/* 左侧页面目录：去掉边框、灰色背景和阴影 */
+/* 左侧页面目录：去掉边框、背景、圆角和阴影 */
 .bs-sidebar {
   border: none;
   background: transparent;
@@ -45,7 +46,7 @@ a {
   padding: 0;
 }
 
-/* 左侧目录：紧凑、扁平，无额外装饰 */
+/* 左侧目录链接：保持紧凑、纯文字 */
 .bs-sidebar .nav a {
   color: #111;
   background: transparent;
@@ -53,7 +54,7 @@ a {
   font-size: 0.9rem;
 }
 
-/* 当前选中的目录项：只用粗体表示，不使用竖线 */
+/* 当前选中的目录项：只用粗体表示，不显示竖线或背景 */
 .bs-sidebar .nav > li > a.active,
 .bs-sidebar .nav > li > a.active:hover,
 .bs-sidebar .nav > li > a.active:focus {
@@ -63,23 +64,42 @@ a {
   font-weight: 600;
 }
 
-/* 隐藏顶部的搜索框和右侧 Previous / Next 导航 */
+/* 隐藏顶部搜索和 Previous / Next 导航 */
 .navbar .form-inline,
 .navbar-nav.ms-auto {
   display: none !important;
 }
 
-/* 隐藏页面底部的 MkDocs footer */
+/* 隐藏 MkDocs 默认页脚 */
 footer {
   display: none;
 }
 
-/* 首页：隐藏左侧页面目录 */
-body:has(.home-page-marker) .bs-sidebar {
+/* 首页：隐藏左侧目录 */
+body:has(.home) .bs-sidebar {
   display: none;
 }
 
-/* 首页：让正文使用完整宽度 */
-body:has(.home-page-marker) .col-md-9 {
+/* 首页：让正文占满原本 sidebar 留下的空间 */
+body:has(.home) .col-md-9 {
   width: 100%;
+}
+
+/* 首页正文区域 */
+.home {
+  max-width: 640px;
+  padding-top: 2.5rem;
+}
+
+/* 首页标题 */
+.home h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+/* 首页副标题 */
+.home p {
+  margin: 0;
+  font-size: 1rem;
 }
