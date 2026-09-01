@@ -80,26 +80,23 @@ body:has(.home) .bs-sidebar {
   display: none;
 }
 
-/* 首页：让正文占满原本 sidebar 留下的空间 */
-body:has(.home) .col-md-9 {
-  width: 100%;
-}
-
 /* 首页正文区域 */
 .home {
-  max-width: 640px;
-  padding-top: 2.5rem;
+  max-width: 720px;
+  padding-top: 3.5rem;
 }
 
 /* 首页标题 */
 .home h1 {
-  margin: 0 0 0.75rem;
-  font-size: 2.2rem;
-  font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.15;
 }
 
 /* 首页副标题 */
 .home p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.35rem;
+  line-height: 1.7;
 }
