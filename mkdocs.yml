@@ -3,6 +3,7 @@ site_name: みそ日記
 theme:
   name: mkdocs
   locale: zh_CN
+  custom_dir: overrides
 
 nav:
   - 首页: index.md

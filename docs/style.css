@@ -3,6 +3,12 @@
    ========================================================= */
 
 /* 整个页面：白色背景、黑色文字 */
+:root {
+  --diary-content-width: 640px;
+  --diary-page-top: clamp(48px, 10vh, 96px);
+  --diary-line-height: 1.8;
+}
+
 body {
   background: #fff;
   background-image: none;
@@ -41,6 +47,13 @@ a {
 .navbar-brand,
 .navbar-nav .nav-link {
   color: #111 !important;
+}
+
+/* 标出当前页面或文章所属栏目，不改变导航的尺寸。 */
+.navbar-nav .nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
 }
 
 /* 隐藏搜索入口 */
@@ -169,45 +182,61 @@ body:has(.home) .col-md-9 {
   letter-spacing: 0.04em;
 }
 
-/* 问答解锁：留白、细线和日记本式的小标题。表单消失后恢复正文布局。 */
-body:has(#mkdocs-decrypt-form, .diary-index)::before {
+/* 全站覆盖主题的网格背景，正文和解锁页始终保持白底。 */
+body::before {
   background: #fff;
 }
 
-body:has(#mkdocs-decrypt-form, .diary-index) .navbar {
-  background: #fff !important;
-  border-bottom-color: #ddd;
-}
-
-body:has(#mkdocs-decrypt-form, .diary-index) .navbar-toggler {
+.navbar .navbar-toggler {
   color: #333;
   border-color: #ccc;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23333333' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-body:has(#mkdocs-decrypt-form, .diary-index) .row > .col-md-3 {
+body > .container > .row > .col-md-3 {
   display: none;
 }
 
-body:has(#mkdocs-decrypt-form, .diary-index) .row > .col-md-9 {
+body > .container > .row > .col-md-9 {
   width: 100%;
 }
 
-/* 解锁后的栏目目录，与问答页保持同样的底色和留白。 */
-#mkdocs-decrypted-content:has(.diary-index) {
-  max-width: 540px;
-  margin: clamp(48px, 10vh, 96px) auto 80px;
+/* 问答、栏目目录、文章共享外框；首页保留原有的大幅留白。 */
+body:not(:has(.home)) [role="main"] {
+  max-width: calc(var(--diary-content-width) + 32px);
+  margin: var(--diary-page-top) auto 80px;
   padding: 0 16px;
   color: #111;
+  font-size: 17px;
+  line-height: var(--diary-line-height);
+  overflow-wrap: anywhere;
 }
 
-#mkdocs-decrypted-content:has(.diary-index) h1 {
+body:not(:has(.home)) [role="main"] h1 {
   margin: 0 0 32px;
   font-size: 27px;
   font-weight: 500;
+  line-height: 1.5;
   letter-spacing: 0.06em;
 }
 
+body:not(:has(.home)) [role="main"] h2 {
+  margin: 40px 0 16px;
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+body:not(:has(.home)) [role="main"] h3 {
+  margin: 32px 0 12px;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+body:not(:has(.home)) [role="main"] p {
+  margin-bottom: 1.25em;
+}
+
+/* 目录列表沿用共同外框，不再单独居中或添加偏移。 */
 #mkdocs-decrypted-content:has(.diary-index) ul {
   list-style: none;
   margin: 0;
@@ -238,13 +267,12 @@ body:has(#mkdocs-decrypt-form, .diary-index) .row > .col-md-9 {
   align-items: end;
   gap: 0 16px;
   width: 100%;
-  max-width: 460px;
-  margin: clamp(72px, 17vh, 160px) auto 80px;
-  padding: 0 12px;
+  margin: 0;
+  padding: 0;
   color: #111;
 }
 
-#mkdocs-decrypt-form h1 {
+body:not(:has(.home)) [role="main"] #mkdocs-decrypt-form h1 {
   grid-column: 1 / -1;
   margin: 0 0 40px;
   font-family: system-ui, sans-serif;
@@ -328,7 +356,6 @@ body:has(#mkdocs-decrypt-form, .diary-index) .row > .col-md-9 {
 @media (max-width: 480px) {
   #mkdocs-decrypt-form {
     gap: 0 12px;
-    padding: 0 16px;
   }
 
   #mkdocs-decrypt-button {

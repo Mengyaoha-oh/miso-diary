@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block site_nav %}
+<ul class="nav navbar-nav">
+  {% for item in nav %}
+    {% set current_page = page and item.is_page and page.file.src_uri == item.file.src_uri %}
+    {% set current_section = page and item.is_page and '/' in item.file.src_uri and page.file.src_uri.startswith(item.file.src_uri.rsplit('/', 1)[0] ~ '/') %}
+    <li class="nav-item">
+      <a href="{{ item.url|url }}"
+         class="nav-link{% if current_page or current_section %} active{% endif %}"
+         {% if current_page %}aria-current="page"{% elif current_section %}aria-current="location"{% endif %}>{{ item.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
