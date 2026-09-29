@@ -49,6 +49,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build MkDocs site
+        env:
+          BOOKS_PASSWORD: ${{ secrets.BOOKS_PASSWORD }}
+          FILMS_PASSWORD: ${{ secrets.FILMS_PASSWORD }}
+          NOTES_PASSWORD: ${{ secrets.NOTES_PASSWORD }}
         run: mkdocs build --strict
 
       - name: Configure GitHub Pages

@@ -13,3 +13,6 @@ __pycache__/
 
 # personal build notes
 build-notes-ai/
+
+# Local encryption cache
+encryptcontent.cache

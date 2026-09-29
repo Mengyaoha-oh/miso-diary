@@ -12,3 +12,23 @@ nav:
 
 extra_css:
   - style.css
+
+hooks:
+  - hooks/passwords.py
+
+plugins:
+  - search
+  - encryptcontent:
+      title_prefix: ''
+      summary: '回答一个问题，翻开这一页。'
+      placeholder: '请输入你的答案'
+      password_button: true
+      password_button_text: '翻开'
+      decryption_failure_message: '还没对上暗号，再想想？'
+      encryption_info_message: ''
+
+      remember_keys: true
+      remember_password: false
+      remember_prefix: 'miso_diary_'
+      search_index: 'encrypted'
+      threshold_warning_min_entropy: 0
