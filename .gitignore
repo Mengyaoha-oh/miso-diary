@@ -16,3 +16,6 @@ build-notes-ai/
 
 # Local encryption cache
 encryptcontent.cache
+
+# Local diary passwords (never commit)
+/passwords.local.json

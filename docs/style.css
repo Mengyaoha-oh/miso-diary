@@ -30,6 +30,18 @@ a {
   color: #111;
 }
 
+/* 日记图片：宽度在 Markdown 中设置，窄屏时按比例缩小。 */
+.col-md-9 img.diary-photo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 
 /* =========================================================
    顶部导航
