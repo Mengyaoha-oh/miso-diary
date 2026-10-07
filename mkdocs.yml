@@ -7,9 +7,10 @@ theme:
 
 nav:
   - 首页: index.md
-  - 阅读: books/index.md
-  - 影片: films/index.md
-  - 随记: notes/index.md
+  - 有的没的: books/index.md
+  - 没的有的: films/index.md
+  - 有的有的: notes/index.md
+  - 没的没的: mengyao/index.md
 
 extra_css:
   - style.css
